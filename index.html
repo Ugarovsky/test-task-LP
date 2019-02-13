@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LP test task</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+
+<body>
+    <header>
+        <h2>Тестовое задание в LightPoint</h2>
+    </header>
+    <div class="container">
+        <div class="our-items text-center">
+            <h1>Наши Магазины</h1>
+            <div class="button text-center">
+                <button id="add-new-shop">Добавить магазин</button>
+            </div>
+            <div class="row">
+                <div id="render-new-shop" class="text-center">
+                    <p>Ссылка на логотип</p>
+                    <input type="url" id="shop-logo" required placeholder="http://stickpng.com/thumbs/ad75a4d.png">
+                    <p>Название магазина</p>
+                    <input type="text" id="shop-name" required placeholder="My Shop Name...">
+                    <p>Описание магазина</p>
+                    <input type="text" id="shop-description" required placeholder="The best of the best">
+                    <p>Адресс</p>
+                    <input type="text" id="shop-located" required placeholder="Minsk, Pushkina 16">
+                    <p>Время работы</p>
+                    <input type="text" id="shop-work-time" required placeholder="14-18">
+                    <button class="render-button" type="submit" onclick=" renderStart()">Cохранить изменения</button>
+                    <button class="render-button" onclick="renderСancel()">Отмена</button>
+                </div>
+            </div>
+            <div class="row">
+                <div id="shop-list">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="shop-settings">
+                <div class="settings-inputs">
+                    <p>Новое имя магазина</p>
+                    <input type="text" id="shop-new-name">
+                    <p>Новое лого</p>
+                    <input type="text" id="shop-new-logo">
+                    <p>Новое описание магазина</p>
+                    <input type="text" id="shop-new-located">
+                    <p>Новое местонахождение</p>
+                    <input type="text" id="shop-new-description">
+                    <p>Новое время работы</p>
+                    <input type="text" id="shop-new-work-time">
+                </div>
+                <div class="settings-buttons">
+                    <button class="render-button" onclick="saveThisSettings()">Cохранить изменения</button>
+                    <button class="render-button" onclick="closeSettingPanel()">Закрыть панель настроек</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="black-line"></div>
+        </div>
+        <div class="row">
+            <article class="line-items">
+                <div class="products-header-wrap">
+                    <h2 id="products-header-title"></h2>
+                    <div class="products-header-searh-area">
+                        <div class="search">
+                            <input id="products-search-area" class="order-search" type="text"
+                                placeholder="Поиск по продуктам" />
+                            <div class="search-icons">
+                                <button type="button" id="productsearch" onclick="searchForProduct()"
+                                    class="search-function">Поиск</button>
+                                <button type="button" id="productrefresh" onclick="refreshProductSearch()"
+                                    class="refresh-function">Обновить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <table>
+                    <thead id="products-table-head"></thead>
+                    <tbody id="products-table-body"></tbody>
+                </table>
+                <div id="product-tools">
+                </div>
+            </article>
+        </div>
+        <div class="row">
+            <div id="add-new-product">
+                <input type="text" id="new-product-name" placeholder="Name : Danna Rise Boots">
+                <input type="number" id="new-product-price" placeholder="Price : 230">
+                <input type="text" id="new-product-count" placeholder="Description : Лучше не бывает">
+                <input type="text" id="new-product-productDescription" placeholder="Description : The best boots ever">
+                <button type="submit" id="new-render-product" onclick="renderNewProduct();">Добавить</button>
+                <button type="submit" onclick=" slideUp('#add-new-product')">Отмена</button>
+            </div>
+            <div id="change-some-product">
+                <input type="number" id="product-id" placeholder="Введите id продукта, который хотите изменить">
+                <input type="text" id="change-product-name" placeholder="Введите новое имя">
+                <input type="text" id="change-product-count" placeholder="Описание товара">
+                <input type="number" id="change-product-price" placeholder="Укажите новую цену">
+                <input type="text" id="change-product-productDescription" placeholder="Укажите новое описание">
+                <button type="submit" id="change-some-product-button" onclick="changePickedProduct()">Изменить</button>
+                <button type="submit" onclick="slideUp('#change-some-product')">Отмена</button>
+            </div>
+            </article>
+        </div>
+        <h2 id="maping-title-hidden">Тут мы находимся!</h2>
+        <div id="maping">
+            
+        </div>
+    </div>
+    </div>
+    <footer>
+        <h2>Дайте шанс, буду стараться *.*</h2>
+    </footer>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=194c7679-6536-441f-940f-db5de7bcc4ef&lang=ru_RU"
+        type="text/javascript"></script>
+</body>
+
+</html>
